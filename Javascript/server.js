@@ -3,7 +3,8 @@ const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 app.use(cors());
 app.set("trust proxy", true);
