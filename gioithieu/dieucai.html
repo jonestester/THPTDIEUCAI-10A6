@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+    <style>
+        .timeline{
+  position:relative;
+  max-width:1100px;
+  margin:80px auto;
+  padding:20px 0;
+}
+
+
+/* line nền */
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;                     /* sửa */
+  height:100%;               /* sửa */
+  width:4px;
+  background:linear-gradient(to bottom,#bfdbfe,#2563eb);
+  transform:translateX(-50%);
+  border-radius:2px;
+}
+
+.timeline-progress{
+  position:absolute;
+  left:50%;
+  top:0;                     /* sửa */
+  width:4px;
+  height:0;
+  background:linear-gradient(to bottom,#60a5fa,#1d4ed8);      /* dùng đúng gradient */
+  transform:translateX(-50%);
+  border-radius:2px;
+  box-shadow:0 0 14px rgba(37,99,235,.7);
+  transition:height .15s linear;
+}
+
+
+/* item */
+.tl-item{
+  display:flex;
+  justify-content:space-between;
+  margin:80px 0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s;
+  position:relative;
+}
+
+.tl-item.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* DOT */
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:18px;
+  height:18px;
+  background:white;
+  border:4px solid #2563eb;
+  border-radius:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  transition:.3s;
+}
+
+/* year */
+.tl-year{
+  width:180px;
+  font-weight:900;
+  font-size:20px;
+  color:#1d4ed8;
+  text-align:right;
+  padding-right:24px;
+}
+
+/* content box */
+.tl-content{
+  width:42%;
+  background:white;
+  padding:20px 22px;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.tl-content:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 34px rgba(0,0,0,.12);
+}
+
+/* so le */
+.tl-item:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+.tl-item:nth-child(even) .tl-year{
+  text-align:left;
+  padding-left:24px;
+  padding-right:0;
+}
+
+/* mobile */
+@media(max-width:768px){
+
+  .timeline::before,
+  .timeline-progress{
+    left:20px;
+  }
+
+  .tl-item{
+    flex-direction:column;
+    margin-left:50px;
+  }
+
+  .tl-item::before{
+    left:20px;
+  }
+
+  .tl-year{
+    text-align:left;
+    padding:0 0 10px 0;
+  }
+
+  .tl-content{
+    width:100%;
+  }
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.img-box{
+  text-align:center;
+  max-width:900px;
+  width:100%;
+}
+.history-intro{
+  margin:40px auto 30px;
+  text-align:center;
+}
+
+
+
+.history-intro h2{
+  font-size:26px;
+  font-weight:800;
+  color:#1d4ed8;
+  margin-bottom:12px;
+}
+
+.history-intro p{
+  max-width: 900px;   /* override 65ch */
+  margin: 0 auto;     /* ép khối p vào giữa */
+  text-align: center;
+}
+.history-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+/* 7 màu rainbow từ đỏ -> tím */
+.tl-item:nth-child(2)::before{ border-color:#ef4444; }
+.tl-item:nth-child(3)::before{ border-color:#f97316; }
+.tl-item:nth-child(4)::before{ border-color:#facc15; }
+.tl-item:nth-child(5)::before{ border-color:#22c55e; }
+.tl-item:nth-child(6)::before{ border-color:#06b6d4; }
+.tl-item:nth-child(7)::before{ border-color:#3b82f6; }
+.tl-item:nth-child(8)::before{ border-color:#8b5cf6; }
+
+/* active glow theo màu */
+.tl-item:nth-child(2).active::before{ box-shadow:0 0 16px #ef4444aa; background:#ef4444; }
+.tl-item:nth-child(3).active::before{ box-shadow:0 0 16px #f97316aa; background:#f97316; }
+.tl-item:nth-child(4).active::before{ box-shadow:0 0 16px #facc15aa; background:#facc15; }
+.tl-item:nth-child(5).active::before{ box-shadow:0 0 16px #22c55eaa; background:#22c55e; }
+.tl-item:nth-child(6).active::before{ box-shadow:0 0 16px #06b6d4aa; background:#06b6d4; }
+.tl-item:nth-child(7).active::before{ box-shadow:0 0 16px #3b82f6aa; background:#3b82f6; }
+.tl-item:nth-child(8).active::before{ box-shadow:0 0 16px #8b5cf6aa; background:#8b5cf6; }
+
+/* set màu viền */
+.tl-item:nth-child(2) .tl-content{ border-color:#ef4444; }
+.tl-item:nth-child(3) .tl-content{ border-color:#f97316; }
+.tl-item:nth-child(4) .tl-content{ border-color:#facc15; }
+.tl-item:nth-child(5) .tl-content{ border-color:#22c55e; }
+.tl-item:nth-child(6) .tl-content{ border-color:#06b6d4; }
+.tl-item:nth-child(7) .tl-content{ border-color:#3b82f6; }
+.tl-item:nth-child(8) .tl-content{ border-color:#8b5cf6; }
+
+/* ===== BORDER RAINBOW OUTWARD ===== */
+
+/* item bên phải trục */
+.tl-item:nth-child(even) .tl-content{
+  border-right-width:6px;
+  border-right-style:solid;
+}
+
+/* item bên trái trục */
+.tl-item:nth-child(odd) .tl-content{
+  border-left-width:6px;
+  border-left-style:solid;
+}
+
+/* màu viền */
+.tl-item:nth-child(2) .tl-content{ border-color:#ef4444; }
+.tl-item:nth-child(3) .tl-content{ border-color:#f97316; }
+.tl-item:nth-child(4) .tl-content{ border-color:#facc15; }
+.tl-item:nth-child(5) .tl-content{ border-color:#22c55e; }
+.tl-item:nth-child(6) .tl-content{ border-color:#06b6d4; }
+.tl-item:nth-child(7) .tl-content{ border-color:#3b82f6; }
+.tl-item:nth-child(8) .tl-content{ border-color:#8b5cf6; }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+<main>
+  <div class="history-wrap">
+    <section class="history-intro">
+      <h2>Anh hùng Lực lượng vũ trang nhân dân Điểu Cải</h2>
+      <p>
+        Anh hùng Lực lượng vũ trang nhân dân Điểu Cải (tên thật Điểu Văn Cải, 1948–1969),
+        còn được gọi là Kon Trô (Kòn Trô – “du kích trẻ con”), là người dân tộc Chơ Ro,
+        quê tại ấp Đức Thắng, xã Túc Trưng, huyện Định Quán, Đồng Nai. Ông từng là xã đội trưởng
+        du kích địa phương, được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1978.
+      </p>
+    </section>
+
+    <div class="timeline">
+
+      <div class="timeline-progress"></div>
+
+      <!-- 1 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">Tuổi thơ</div>
+          <ul>
+            <li>Lớn lên tại vùng núi trong thời chiến, thường xuyên chứng kiến càn quét và đàn áp.</li>
+            <li>Từ nhỏ theo cha làm rẫy, đi qua nhiều đồn bốt, lô cốt địch.</li>
+            <li>Năm 8 tuổi nhận nhiệm vụ chuyển tài liệu bí mật giấu trong ống trúc.</li>
+            <li>Vượt qua kiểm soát lính gác an toàn — nhiệm vụ cách mạng đầu tiên.</li>
+            <li>Sau đó được cán bộ vận động đi học chữ.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">Tham gia du kích</div>
+          <ul>
+            <li>Phong trào du kích người Chơ Ro phát triển mạnh ở Tân Phú – Phú Lập – Chiến khu Đ.</li>
+            <li>Khoảng 16 tuổi: xã đội phó, phụ trách đội du kích.</li>
+            <li>Khoảng 18 tuổi: trở thành xã đội trưởng.</li>
+            <li>Tình nguyện trực tiếp cầm súng chiến đấu.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">1965 → 1966</div>
+          <ul>
+            <li>Năm 1965 chính thức hoạt động cách mạng tại Túc Trưng.</li>
+            <li>Là thành viên đội du kích địa phương.</li>
+            <li>Ngày 27/02/1966 được kết nạp vào Đảng Cộng sản Việt Nam.</li>
+            <li>Chỉ huy và trực tiếp tham gia nhiều trận đánh.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">1968</div>
+          <ul>
+            <li>Phục kích Suối Nho, phối hợp tiêu diệt ~30 địch, làm bị thương ~20.</li>
+            <li>Tháng 6/1968 bắn rơi máy bay trinh sát trên QL20 (súng K44).</li>
+            <li>Tháng 9/1968 đặt mìn chống tăng, phá hủy 3 xe M113.</li>
+            <li>Tháng 11/1968 bắn rơi thêm 1 máy bay tại km 91 (súng K44).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">Hoạt động nổi bật</div>
+          <ul>
+            <li>Nhiều lần cải trang đột nhập ấp chiến lược Cây Xăng.</li>
+            <li>Dùng AK và lựu đạn tiêu diệt nhiều địch.</li>
+            <li>Tự chế tạo vũ khí từ bom đạn địch.</li>
+            <li>Xây dựng cơ sở quần chúng, bảo đảm lương thực cho đơn vị.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">1969</div>
+          <ul>
+            <li>Xử lý và bố trí lại mìn địch trên tuyến Túc Trưng – Tam Bung.</li>
+            <li>Kích nổ tiêu diệt 12 địch, làm bị thương 7, thu 2 súng.</li>
+            <li>Được chọn dự Đại hội Chiến sĩ thi đua cấp miền.</li>
+            <li>Được cử vào đoàn ra thăm miền Bắc.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="tl-item">
+        <div class="tl-content neo-box">
+          <div class="tl-year">Thành tích & tưởng niệm</div>
+          <ul>
+            <li>Tham gia ~125 trận đánh, tiêu diệt 142 lính Mỹ–Ngụy.</li>
+            <li>Bắn rơi 2 máy bay, phá hủy 3 xe tăng M113.</li>
+            <li>Vận động 22 thanh niên tham gia du kích.</li>
+            <li>Được tặng nhiều Huân chương Chiến công, 4 lần Chiến sĩ thi đua.</li>
+            <li>Hy sinh ngày 22/10/1969 do trúng mìn.</li>
+            <li>Truy tặng danh hiệu Anh hùng LLVTND năm 1978.</li>
+            <li>Tên ông được đặt cho Trường THPT Điểu Cải và một con đường tại Ea Tam – Buôn Ma Thuột.</li>
+            <li>Chân dung được phục dựng năm 2014 theo lời kể nhân chứng.</li>
+          </ul>
+        </div>
+        <div class="Tongquat">
+            <div>
+            <img src="/Images/dieuvancai.jpg">
+            <div><p class="img-caption">Chân dung anh hùng Điểu Văn Cải</p></div>
+        </div>
+            
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+    <script>
+const timeline = document.querySelector(".timeline");
+const progress = document.querySelector(".timeline-progress");
+
+function updateTimeline(){
+  const rect = timeline.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  const visible = vh - rect.top;
+  const percent = visible / timeline.offsetHeight;
+
+  progress.style.height = Math.max(0, Math.min(1, percent)) * 100 + "%";
+}
+
+
+window.addEventListener("scroll", updateTimeline);
+updateTimeline();
+
+const items = document.querySelectorAll(".tl-item");
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+      e.target.classList.add("active");
+    }
+  });
+},{
+  rootMargin: "-20% 0px -20% 0px"
+
+});
+
+items.forEach(el => io.observe(el));
+
+</script>
+
+</body>
+</html>

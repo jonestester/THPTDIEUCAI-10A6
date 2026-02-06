@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+    <main>
+<!-- ================= HOẠT ĐỘNG HÀNG TUẦN ================= -->
+
+<div class="title-box reveal">
+CÁC HOẠT ĐỘNG CỦA TRƯỜNG TRUNG HỌC PHỔ THÔNG ĐIỂU CẢI HÀNG TUẦN
+</div>
+
+<div class="neo-box reveal" style="max-width:100%; justify-self: center; text-align: center; margin-bottom:30px;">
+<p class="main-colored">
+Các hoạt động là một phần không thể thiếu trong môi trường trường học, góp phần xây dựng và định hướng tính cách, sở thích, kỹ năng sống và tinh thần trách nhiệm của học sinh. 
+Tại Trường THPT Điểu Cải, các hoạt động luôn ưu tiên sự sáng tạo, tinh thần làm việc nhóm, trải nghiệm thực tế và tính chủ động tham gia của từng học sinh. 
+Nhà trường xem hoạt động tập thể là môi trường rèn luyện song song với học tập học thuật.
+</p>
+</div>
+
+
+<!-- CHÀO CỜ -->
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p class="main-colored">Chào cờ đầu tuần</p>
+<p>
+Trong quá trình chào cờ, nhà trường sẽ thông báo về các hoạt động của trường, thành tích thi đua của các lớp trong tuần, các phong trào sắp triển khai, hoạt động cộng đồng, khen thưởng và nhắc nhở nề nếp. 
+Hoạt động này giúp học sinh rèn luyện ý thức tập thể, tinh thần kỷ luật và trách nhiệm công dân.
+</p>
+</div>
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/chaoco1.jpg">
+<img class="lb-able" src="/Images/chaoco2.png">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Ảnh lao động trước cổng trường</div></div>
+
+</section>
+
+
+<!-- HIẾN MÁU -->
+<section class="Tongquat reveal">
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/hienmau1.png">
+<img class="lb-able" src="/Images/hienmau2.png">
+<img class="lb-able" src="/Images/hienmau3.png">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button></div>
+<div class="img-caption">Thầy và trò tích cực tham gia hoạt động hiến máu nhân đạo tại trường</div>
+</div></div>
+
+<div class="neo-box">
+<p class="main-colored">Hoạt động hiến máu nhân đạo</p>
+<p>
+Hoạt động hiến máu nhân đạo tại Trường THPT Điểu Cải thể hiện tinh thần nhân ái và trách nhiệm với cộng đồng của thầy và trò nhà trường. 
+Chương trình góp phần bổ sung nguồn máu quý giá cho ngành y tế, đồng thời nâng cao nhận thức học sinh về ý nghĩa của việc hiến máu cứu người, lan tỏa lối sống nhân văn và tinh thần sẻ chia.
+</p>
+</div>
+
+</section>
+
+
+<!-- SINH HOẠT DƯỚI CỜ -->
+<section class="Tongquat reveal" style="flex-wrap:wrap">
+<div class="neo-box">
+<p class="main-colored">Sinh hoạt dưới cờ theo chuyên đề</p>
+<p>
+Sinh hoạt dưới cờ là hoạt động đặc biệt khi học sinh các lớp cùng nhau tranh luận, thuyết trình các vấn đề xã hội, hiện tượng đời sống, kỹ năng sống và giá trị công dân. 
+Đi kèm là các tiết mục sân khấu hóa, kể chuyện, trình bày dự án nhỏ. 
+Hoạt động diễn ra vào thứ 7 hằng tháng và là trải nghiệm gần như “đặc sản” đối với đoàn viên và học sinh toàn trường.
+</p>
+</div>
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/sinhhoat1.jpg">
+<img class="lb-able" src="/Images/sinhhoat2.jpg">
+<img class="lb-able" src="/Images/sinhhoat3.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Học sinh tham gia sinh hoạt</div>
+</div>
+</section>
+
+<!-- LAO ĐỘNG -->
+<section class="Tongquat reveal">
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/laodong1.jpg">
+<img class="lb-able" src="/Images/laodong2.jpg">
+<img class="lb-able" src="/Images/laodong3.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Lao động trước cổng trường</div>
+</div>
+<div class="neo-box">
+<p class="main-colored">Hoạt động lao động – vệ sinh – trồng cây</p>
+<p>
+Học sinh có thể tham gia dọn dẹp, chăm sóc cây xanh, vệ sinh lớp học và khu vực cộng đồng. 
+Dù có thể khá vất vả nhưng hoạt động này giúp phát triển kỹ năng sống, tinh thần trách nhiệm và niềm vui từ lao động tập thể.
+</p>
+</div>
+
+</section>
+
+
+<!-- TRANG TRÍ LỚP -->
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p class="main-colored">Hoạt động trang trí lớp</p>
+<p>
+Nhà trường đề cao sự sáng tạo và tính nghệ thuật trong không gian lớp học. 
+Toàn bộ thành viên lớp có thể cùng tham gia thiết kế, trang trí, tạo môi trường học tập thân thiện và truyền cảm hứng.
+</p>
+</div>
+
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/trangtri1.jpg">
+<img class="lb-able" src="/Images/trangtri2.jpg">
+<img class="lb-able" src="/Images/trangtri3.jpg">
+<img class="lb-able" src="/Images/trangtri4.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Lớp học đã trang trí</div>
+</div>
+
+</section>
+
+
+<!-- THỂ THAO -->
+<section class="Tongquat reveal">
+
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/thethao1.jpg">
+<img class="lb-able" src="/Images/thethao2.jpg">
+<img class="lb-able" src="/Images/thethao3.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Giải bóng chuyền năm 2025</div>
+</div>
+
+<div class="neo-box">
+<p class="main-colored">Giải bóng chuyền</p>
+<p>
+Giải bóng chuyền được tổ chức hằng năm nhằm đề cao tinh thần thể thao, rèn luyện thể chất và phối hợp đồng đội. 
+Nếu bạn mê thể thao thì đây là sân chơi nên thử sức ít nhất một lần.
+</p>
+</div>
+
+</section>
+
+
+<!-- STEM -->
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p class="main-colored">Hoạt động STEM</p>
+<p>
+Hoạt động STEM được tổ chức nhằm giúp học sinh nâng cao hiểu biết, áp dụng kiến thức vào thực tiễn và định hướng nghề nghiệp. 
+Triển khai trên nhiều lĩnh vực như Tin học, Vật lý, Hóa học, Lịch sử và công nghệ.
+</p>
+</div>
+
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/stem1.jpg">
+<img class="lb-able" src="/Images/stem2.jpg">
+<img class="lb-able" src="/Images/stem3.jpg">
+<img class="lb-able" src="/Images/stem4.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Một số dự án STEM</div>
+</div>
+
+</section>
+
+
+<!-- QUYÊN GÓP -->
+<section class="Tongquat reveal">
+
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/donate1.jpg">
+<img class="lb-able" src="/Images/donate2.jpg">
+<img class="lb-able" src="/Images/donate3.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Hoạt động giúp đỡ người dân bão lũ miền Trung</div>
+</div>
+
+<div class="neo-box">
+<p class="main-colored">Hoạt động quyên góp hỗ trợ miền Trung</p>
+<p>
+Hằng năm khi đồng bào miền Trung chịu ảnh hưởng lũ lụt, nhà trường tổ chức quyên góp quần áo và tài chính để sẻ chia khó khăn. 
+Hoạt động giúp lan tỏa tinh thần tương thân tương ái và trách nhiệm xã hội trong học sinh.
+</p>
+</div>
+
+</section>
+
+
+
+<!-- ================= ĐỒNG PHỤC ================= -->
+
+<div class="title-box-mini-reverse reveal">
+ĐỒNG PHỤC CỦA TRƯỜNG
+</div>
+
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p class="main-colored">Các loại đồng phục sử dụng trong trường</p>
+<p>
+Bao gồm: đồng phục học sinh hằng ngày, đồng phục thể dục, áo đoàn viên và trang phục giáo dục quốc phòng. 
+Mỗi loại được sử dụng theo mục đích học tập và hoạt động khác nhau.
+</p>
+
+<p>
+Áo đoàn viên được mặc vào thứ 5 hằng tuần hoặc trong các hoạt động do Đoàn tổ chức như sinh hoạt dưới cờ.  
+Áo thể dục và trang phục giáo dục quốc phòng được mặc trong các tiết học buổi chiều theo thời khóa biểu.
+</p>
+</div>
+
+<div>
+<div class="slider">
+<button class="slide-button prev"><span class="tri-left"></span></button>
+<div class="track slide-image">
+<img class="lb-able" src="/Images/dongphuc1.jpg">
+<img class="lb-able" src="/Images/dongphuc2.jpg">
+</div>
+<button class="slide-button next"><span class="tri-right"></span></button>
+</div>
+<div class="img-caption">Một số đồng phục của Trường</div>
+</div>
+
+</section>
+
+    </main>
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+</body>
+</html>

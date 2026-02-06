@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+   <main>
+
+    <!-- BANNER -->
+    <div class="sliderbanner"> 
+        <button class="slide-button prev"><span class="tri-left"></span></button>
+        <div class="slider-track slide-image" id="banner">
+            <img src="/Images/DHDB_Webbaner.png" title="Đại Hội Đại Biểu">
+            <img src="/Images/WebBanner-02.jpg">
+            <img src="/Images/WebBanner-03.jpg">
+            <img src="/Images/hienmau.jpg">
+        </div>
+        <button class="slide-button next"><span class="tri-right"></span></button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="fullscreen title-box reveal" style="margin-top:0">
+        TỔNG QUÁT VỀ TRƯỜNG THPT ĐIỂU CẢI
+    </div>
+
+    <!-- TỔNG QUAN -->
+    <section class="Tongquat reveal">
+
+        <div class="slider">
+            <button class="slide-button prev"><span class="tri-left"></span></button>
+            <div class="track slide-image">
+                <img src="/Images/Tongquan1.jpg">
+                <img src="/Images/Tongquan2.jpg">
+                <img src="/Images/Tongquan3.jpg">
+            </div>
+            <button class="slide-button next"><span class="tri-right"></span></button>
+        </div>
+
+        <div class="neo-box">
+            <ul style="list-style-type:square">
+                <li>
+                    Trường THPT Điểu Cải, tọa lạc tại ấp Hoà Bình xã La Ngà, tỉnh Đồng Nai, là một trong những cơ sở giáo dục trung học phổ thông có truyền thống dạy và học của địa phương. Qua nhiều năm hình thành và phát triển, nhà trường không ngừng nâng cao chất lượng đào tạo, xây dựng môi trường học tập kỷ cương, thân thiện và tiến bộ.
+                </li>
+                <li>
+                    Với định hướng giáo dục toàn diện, trường chú trọng phát triển cả kiến thức, kỹ năng và phẩm chất học sinh. Đội ngũ giáo viên tâm huyết, hoạt động học tập và phong trào sôi nổi cùng tinh thần đoàn kết là những yếu tố tạo nên bản sắc riêng của nhà trường.
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- DI CHUYỂN -->
+    <div class="title-box-mini reveal">
+        CÁCH DI CHUYỂN TỚI TRƯỜNG VÀ VỊ TRÍ
+    </div>
+
+    <section class="Tongquat reveal">
+        <div class="neo-box">
+            <ul style="list-style-type:square;">
+
+                <li>
+                    Nếu đây là lần đầu bạn di chuyển tới trường Điểu Cải, việc di chuyển cũng khá đơn giản. Con đường chính để di chuyển tới trường là quốc lộ 20. Từ ngã ba cây xăng Đức Thành trên quốc lộ 20, bạn chỉ cần di chuyển vào trung tâm xã và đi một đoạn ngắn khoảng vài trăm mét là sẽ thấy ngôi trường THPT Điểu Cải.
+                </li>
+
+                <li>
+                    Đối với các học sinh sử dụng phương tiện công cộng (xe buýt, xe taxi), các phương tiện công cộng đều xuất hiện dọc theo tuyến đường quốc lộ 20 từ ngã ba cây xăng Đức Thành.
+                </li>
+
+                <li>
+                    Lưu ý: Khi di chuyển nhớ để ý đường đi, trang bị cho bản thân nón bảo hiểm và tuân thủ luật an toàn giao thông.
+                </li>
+            </ul>
+        </div>
+        <div>
+  <iframe
+    src="https://www.google.com/maps?q=THPT%20Đi%E1%BB%83u%20C%E1%BA%A3i&output=embed"
+    width="100%"
+    height="600"
+    style="border:0; border-radius:16px;"
+    loading="lazy">
+  </iframe>
+</div>
+
+    </section>
+
+    <!-- THỐNG KÊ -->
+    <div class="stat-box reveal">
+        <div class="stat-box-title reveal">
+            <h1>THỐNG KÊ</h1>
+            <div><p>Hơn 40 năm xây dựng, đào tạo, phát triển bền vững</p></div>
+        </div>
+
+        <div class="stat-box-stats reveal">
+            <div class="stat-item"><div class="number">44</div><div>Năm hình thành</div></div>
+            <div class="stat-item"><div class="number">1000+</div><div>Học sinh</div></div>
+            <div class="stat-item"><div class="number" id="visitToday">0</div><div>Lượt truy cập hôm nay</div></div>
+            <div class="stat-item"><div class="number">30</div><div>Phòng học</div></div>
+            <div class="stat-item"><div class="number">71</div><div>Giáo viên</div></div>
+        </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="title-box-reverse reveal">THƯ VIỆN HÌNH ẢNH</div>
+
+    <section class="Tongquat reveal">
+
+        <div class="neo-box">
+            <ul style="list-style-type:square">
+                <li>
+                    Những hình ảnh về cơ sở vật chất, hoạt động giảng dạy và phong trào học tập của nhà trường, góp phần thể hiện rõ nét chất lượng giáo dục cũng như không khí học đường tích cực.
+                </li>
+            </ul>
+
+            <div class="continue-button-box">
+                <a href="thuvien.html">
+                    <div class="continue-button">xem thêm</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="slider">
+            <button class="slide-button prev"><span class="tri-left"></span></button>
+            <div class="slide-image track">
+                <img src="/Images/anh1.jpg">
+                <img src="/Images/anh2.jpg">
+                <img src="/Images/anh3.jpg">
+                <img src="/Images/anh4.jpg">
+            </div>
+            <button class="slide-button next"><span class="tri-right"></span></button>
+        </div>
+
+    </section>
+
+</main>
+
+
+
+    <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+    
+    <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+    <script>
+    fetch("http://localhost:3000/count")
+    .then(r => r.json())
+    .then(data => {
+    animateNumber("visitToday", data.today);
+    });
+
+    function animateNumber(id, target) {
+    let n = 0;
+    const step = Math.max(1, Math.floor(target / 30));
+
+    const timer = setInterval(() => {
+        n += step;
+        if (n >= target) {
+            n = target;
+            clearInterval(timer);
+        }
+        document.getElementById(id).textContent = n;
+    }, 30);
+}
+</script>
+
+</body>
+</html>

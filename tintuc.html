@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+    <style>
+      /* ===== container ===== */
+
+.news-container{
+  max-width:1100px;
+  margin:auto;
+  padding:14px;
+}
+
+
+/* ===== feature ===== */
+
+.news-feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(0,0,0,.12);
+  margin-bottom:32px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.news-feature:hover{
+  transform:translateY(-6px);
+  box-shadow:0 22px 48px rgba(0,0,0,.18);
+}
+
+.news-feature img{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+  transition:.35s;
+}
+
+.news-feature:hover img{
+  transform:scale(1.05);
+}
+
+.news-feature-content{
+  padding:26px;
+}
+
+.news-feature h2{
+  color:#254880;
+}
+
+
+/* ===== tag ===== */
+
+.news-tag{
+  background:#bd3232;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:12px;
+}
+
+
+/* ===== grid ===== */
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+
+/* ===== card ===== */
+
+.news-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  transition:.28s;
+}
+
+.news-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 36px rgba(0,0,0,.16);
+}
+
+.news-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  transition:.35s;
+}
+
+.news-card:hover img{
+  transform:scale(1.07);
+}
+
+.news-body{
+  padding:18px;
+}
+
+.news-body h3{
+  color:#254880;
+}
+
+.news-date{
+  color:#bd3232;
+  font-weight:800;
+  font-size:12px;
+}
+
+
+/* ===== lightbox ===== */
+
+.lightbox-news{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:9999;
+}
+
+.lightbox-news.active{
+  display:block;
+}
+
+.lightbox-news-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+}
+
+.lightbox-news-box{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:min(720px,92%);
+  background:#fff;
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+  animation:pop .25s ease;
+}
+
+@keyframes pop{
+  from{opacity:0; transform:translate(-50%,-46%) scale(.95);}
+  to{opacity:1; transform:translate(-50%,-50%) scale(1);}
+}
+
+.lightbox-news-box h2{
+  color:#254880;
+}
+
+.lightbox-news-date{
+  color:#bd3232;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.lightbox-news-close{
+  position:absolute;
+  right:16px;
+  top:12px;
+  cursor:pointer;
+  font-size:20px;
+}
+
+
+/* ===== responsive ===== */
+
+@media(max-width:900px){
+  .news-feature{grid-template-columns:1fr;}
+  .news-grid{grid-template-columns:1fr;}
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+    <main>
+<!-- ================= NEWS ================= -->
+
+<div class="news-container">
+
+  <!-- ===== Tin nổi bật ===== -->
+  <div class="news-feature lb-able"
+       data-title="Ngày hội STEM tại THPT Điểu Cải"
+       data-date="07/02/2026"
+       data-content="Ngày hội STEM tại Trường THPT Điểu Cải là sự kiện giáo dục ý nghĩa nhằm khơi dậy đam mê khoa học – công nghệ – kỹ thuật – toán học trong học sinh. Hoạt động gồm mô hình sáng tạo, sản phẩm thực nghiệm, trải nghiệm nhóm và trình diễn ý tưởng khoa học.">
+
+    <img src="/Images/stemevent.jpg">
+
+    <div class="news-feature-content">
+      <span class="news-tag">TIN NỔI BẬT</span>
+      <h2>Ngày hội STEM – Sáng tạo & Trải nghiệm khoa học</h2>
+      <p>
+        Sự kiện giúp học sinh tiếp cận khoa học bằng trải nghiệm thực tế,
+        mô hình sáng tạo và sản phẩm học tập đa dạng.
+      </p>
+
+      <div class="continue-button-box">
+        <div class="continue-button">Xem chi tiết</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Grid tin ===== -->
+
+  <div class="news-grid">
+
+    <!-- Tin 2 -->
+    <div class="news-card lb-able"
+         data-title="Đại hội đại biểu lần thứ XIV"
+         data-date="23/01/2026"
+         data-content="Đại hội tổng kết nhiệm kỳ trước, đánh giá kinh tế – xã hội – quốc phòng – an ninh – đối ngoại, thông qua văn kiện và bầu BCH khóa mới.">
+
+      <img src="/Images/DHDB_Webbaner.png">
+      <div class="news-body">
+        <div class="news-date">23/01/2026</div>
+        <h3>Đại hội đại biểu lần thứ XIV</h3>
+        <p>Tổng kết đổi mới, xác định mục tiêu phát triển nhiệm kỳ mới.</p>
+
+        <div class="continue-button-box">
+          <div class="continue-button">Đọc thêm</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tin 3 -->
+    <div class="news-card lb-able"
+         data-title="96 năm thành lập Đảng Cộng sản Việt Nam"
+         data-date="03/02/2026"
+         data-content="Hoạt động tuyên truyền và sinh hoạt chủ đề lịch sử – truyền thống – lý tưởng cách mạng cho học sinh toàn trường.">
+
+      <img src="/Images/WebBanner-02.jpg">
+      <div class="news-body">
+        <div class="news-date">03/02/2026</div>
+        <h3>96 năm thành lập Đảng Cộng sản Việt Nam</h3>
+        <p>Sinh hoạt truyền thống và giáo dục lý tưởng sống.</p>
+
+        <div class="continue-button-box">
+          <div class="continue-button">Đọc thêm</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tin 4 -->
+    <div class="news-card lb-able"
+         data-title="Hiến máu nhân đạo"
+         data-date="Thường niên"
+         data-content="Hoạt động thể hiện tinh thần nhân ái, trách nhiệm cộng đồng của thầy và trò, góp phần bổ sung nguồn máu quý cho y tế.">
+
+      <img src="/Images/hienmau.jpg">
+      <div class="news-body">
+        <div class="news-date">Hoạt động cộng đồng</div>
+        <h3>Hiến máu nhân đạo tại trường</h3>
+        <p>Lan tỏa tinh thần sẻ chia và trách nhiệm xã hội.</p>
+
+        <div class="continue-button-box">
+          <div class="continue-button">Đọc thêm</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- ================= LIGHTBOX NEWS ================= -->
+
+<div class="lightbox-news" id="newsLightbox">
+  <div class="lightbox-news-overlay"></div>
+
+  <div class="lightbox-news-box">
+    <div class="lightbox-news-close">✕</div>
+    <div class="lightbox-news-date" id="lbDate"></div>
+    <h2 id="lbTitle"></h2>
+    <p id="lbContent"></p>
+  </div>
+</div>
+
+
+
+    </main>
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+    <div class="lightbox-news" id="newsBox">
+  <div class="news-layer">
+    <span class="news-close">✕</span>
+
+    <img id="newsImg">
+
+    <div class="news-layer-body">
+      <h2 id="newsTitle"></h2>
+      <p id="newsText"></p>
+    </div>
+  </div>
+</div>
+
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+    <script>
+const items = document.querySelectorAll(".lb-able");
+const lb = document.getElementById("newsLightbox");
+
+items.forEach(el=>{
+  el.addEventListener("click",()=>{
+    document.getElementById("lbTitle").innerText = el.dataset.title;
+    document.getElementById("lbDate").innerText = el.dataset.date;
+    document.getElementById("lbContent").innerText = el.dataset.content;
+    lb.classList.add("active");
+  });
+});
+
+document.querySelector(".lightbox-news-overlay")
+.addEventListener("click",()=> lb.classList.remove("active"));
+
+document.querySelector(".lightbox-news-close")
+.addEventListener("click",()=> lb.classList.remove("active"));
+
+</script>
+</body>
+</html>

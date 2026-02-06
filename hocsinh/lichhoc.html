@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+    <style>
+        .schedule-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:18px;
+  font-size:16px;
+}
+
+.schedule-table th,
+.schedule-table td{
+  border:1px solid #e5e7eb;
+  padding:12px 14px;
+  text-align:left;
+}
+
+.schedule-table th{
+  background: var(--p-700);
+  color:white;
+  font-weight:700;
+}
+
+.schedule-table tr:nth-child(even){
+  background:#f9fafb;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="/lienhe.html">Liên hệ</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+<main>
+
+  <div class="title-box">LỊCH HỌC TẬP VÀ LÀM VIỆC</div>
+
+  <!-- BUỔI SÁNG -->
+  <section class="container">
+    <div class="title-box-mini">☀️ KHUNG GIỜ BUỔI SÁNG</div>
+    <p class="light-colored">Dành cho chương trình chính khóa và các hoạt động giáo dục trọng tâm.</p>
+
+    <table class="schedule-table">
+      <tr>
+        <th>Hoạt động</th>
+        <th>Thời gian</th>
+        <th>Chi tiết</th>
+      </tr>
+      <tr><td>Tập trung & ổn định</td><td>06:45 – 07:00</td><td>Sinh hoạt đầu giờ, kiểm tra nề nếp</td></tr>
+      <tr><td>Tiết 1</td><td>07:00 – 07:45</td><td>45 phút học tập</td></tr>
+      <tr><td>Tiết 2</td><td>07:45 – 08:30</td><td>45 phút học tập</td></tr>
+      <tr><td>Ra chơi</td><td>08:30 – 08:50</td><td>20 phút (vui chơi, ăn sáng)</td></tr>
+      <tr><td>Tiết 3</td><td>08:50 – 09:35</td><td>45 phút học tập</td></tr>
+      <tr><td>Tiết 4</td><td>09:35 – 10:20</td><td>45 phút học tập</td></tr>
+      <tr><td>Ra chơi</td><td>10:20 – 10:30</td><td>10 phút nghỉ ngơi</td></tr>
+      <tr><td>Tiết 5</td><td>10:30 – 11:15</td><td>Kết thúc buổi sáng</td></tr>
+    </table>
+  </section>
+
+  <!-- BUỔI CHIỀU -->
+  <section class="container">
+    <div class="title-box-mini">🌤️ KHUNG GIỜ BUỔI CHIỀU</div>
+    <p class="light-colored">Dành cho chương trình tăng cường, bồi dưỡng học sinh giỏi.</p>
+
+    <table class="schedule-table reveal">
+      <tr>
+        <th>Hoạt động</th>
+        <th>Thời gian</th>
+        <th>Chi tiết</th>
+      </tr>
+      <tr><td>Tập trung & ổn định</td><td>12:45 – 13:00</td><td>Sinh hoạt đầu giờ, kiểm tra nề nếp</td></tr>
+      <tr><td>Tiết 1</td><td>13:00 – 13:45</td><td>45 phút học tập</td></tr>
+      <tr><td>Tiết 2</td><td>13:45 – 14:30</td><td>45 phút học tập</td></tr>
+      <tr><td>Ra chơi</td><td>14:30 – 14:50</td><td>20 phút (vui chơi)</td></tr>
+      <tr><td>Tiết 3</td><td>14:50 – 15:35</td><td>45 phút học tập</td></tr>
+      <tr><td>Tiết 4</td><td>15:35 – 16:20</td><td>45 phút học tập</td></tr>
+      <tr><td>Ra chơi</td><td>16:20 – 16:30</td><td>10 phút nghỉ ngơi</td></tr>
+      <tr><td>Tiết 5</td><td>16:30 – 17:15</td><td>Kết thúc buổi chiều</td></tr>
+    </table>
+
+    <p class="p15" style="margin-top:16px;color:#666">
+      Lưu ý: Lịch học tập và làm việc có thể thay đổi vào các dịp lễ và kỳ nghỉ.
+    </p>
+  </section>
+
+</main>
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+</body>
+</html>

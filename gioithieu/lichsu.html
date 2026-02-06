@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+    <style>
+        .timeline{
+  position:relative;
+  max-width:1100px;
+  margin:80px auto;
+  padding:20px 0;
+}
+
+
+/* line nền */
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:80px;
+  height:calc(100% - 80px);
+  width:4px;
+  background:linear-gradient(to bottom,#bfdbfe,#2563eb);
+  transform:translateX(-50%);
+  border-radius:2px;
+}
+
+/* line sáng chạy */
+.timeline-progress{
+  position:absolute;
+  left:50%;
+  top:80px;
+  width:4px;
+  height:0;
+  background:linear-gradient(to bottom,#60a5fa,#1d4ed8);
+  transform:translateX(-50%);
+  border-radius:2px;
+  box-shadow:0 0 14px rgba(37,99,235,.7);
+  transition:height .15s linear;
+}
+
+/* item */
+.tl-item{
+  display:flex;
+  justify-content:space-between;
+  margin:80px 0;
+  opacity:0;
+  transform:translateY(40px);
+  transition:.6s;
+  position:relative;
+}
+
+.tl-item.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* DOT */
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:18px;
+  height:18px;
+  background:white;
+  border:4px solid #2563eb;
+  border-radius:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  transition:.3s;
+}
+
+/* DOT phát sáng khi active */
+.tl-item.active::before{
+  background:#2563eb;
+  box-shadow:
+    0 0 0 6px rgba(37,99,235,.15),
+    0 0 18px rgba(37,99,235,.8);
+}
+
+/* year */
+.tl-year{
+  width:180px;
+  font-weight:900;
+  font-size:20px;
+  color:#1d4ed8;
+  text-align:right;
+  padding-right:24px;
+}
+
+/* content box */
+.tl-content{
+  width:42%;
+  background:white;
+  padding:20px 22px;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.tl-content:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 34px rgba(0,0,0,.12);
+}
+
+/* so le */
+.tl-item:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+.tl-item:nth-child(even) .tl-year{
+  text-align:left;
+  padding-left:24px;
+  padding-right:0;
+}
+
+/* mobile */
+@media(max-width:768px){
+
+  .timeline::before,
+  .timeline-progress{
+    left:20px;
+  }
+
+  .tl-item{
+    flex-direction:column;
+    margin-left:50px;
+  }
+
+  .tl-item::before{
+    left:20px;
+  }
+
+  .tl-year{
+    text-align:left;
+    padding:0 0 10px 0;
+  }
+
+  .tl-content{
+    width:100%;
+  }
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.img-box{
+  text-align:center;
+  max-width:900px;
+  width:100%;
+}
+.history-intro{
+  margin:40px auto 30px;
+  text-align:center;
+}
+
+
+
+.history-intro h2{
+  font-size:26px;
+  font-weight:800;
+  color:#1d4ed8;
+  margin-bottom:12px;
+}
+
+.history-intro p{
+  max-width: 900px;   /* override 65ch */
+  margin: 0 auto;     /* ép khối p vào giữa */
+  text-align: center;
+}
+.history-wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+   <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+  <main>
+
+  <!-- TIÊU ĐỀ -->
+  <div class="first-title-box">
+    LỊCH SỬ HÌNH THÀNH & PHÁT TRIỂN<br>
+    TRƯỜNG THPT ĐIỂU CẢI
+  </div>
+
+  <!-- WRAP CHUNG -->
+  <div class="history-wrap">
+
+    <!-- INTRO -->
+    <div class="history-intro">
+      <h2>Ngôi trường mang tên một huyền thoại</h2>
+      <p>
+        Ngôi trường vinh dự mang tên Anh hùng Lực lượng vũ trang nhân dân
+        <b>Điểu Cải</b>, người con ưu tú của đồng bào Chơ Ro.
+        Hình ảnh người chiến sĩ du kích kiên cường ấy chính là “ngọn lửa”
+        tinh thần, soi sáng con đường chinh phục tri thức
+        của bao thế hệ học sinh.
+      </p>
+    </div>
+
+    <!-- TIMELINE -->
+    <section class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-year">1981–1982</div>
+        <div class="tl-content">
+          <h3>Giai đoạn khởi nguồn</h3>
+          <ul>
+            <li>Tiền thân là phân hiệu trực thuộc THPT Tân Phú</li>
+            <li>Chỉ có 68 học sinh ban đầu</li>
+            <li>Mượn cơ sở khu Tin Lành để dạy học</li>
+            <li>19/10/1982 chính thức thành lập trường</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1989–1997</div>
+        <div class="tl-content">
+          <h3>Thử thách & chuyển mình</h3>
+          <ul>
+            <li>Sáp nhập mô hình THCS & THPT</li>
+            <li>Cơ sở vật chất còn đơn sơ</li>
+            <li>Xây dựng nền nếp dạy tốt – học tốt</li>
+            <li>1997 được đầu tư xây dựng mới</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2000–nay</div>
+        <div class="tl-content">
+          <h3>Phát triển & khẳng định</h3>
+          <ul>
+            <li>Tập trung đào tạo bậc THPT</li>
+            <li>Mở rộng quy mô học sinh</li>
+            <li>Đổi mới phương pháp giảng dạy</li>
+            <li>Địa chỉ giáo dục tin cậy tại địa phương</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ẢNH -->
+    <div class="container">
+      <div class="img-box lb-able">
+        <img src="/Images/olddieucai.jpg" alt="Ảnh cũ Trường THPT Điểu Cải">
+        <div class="img-caption">
+          Hình ảnh giai đoạn đầu xây dựng Trường THPT Điểu Cải
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+    <script>
+const timeline = document.querySelector(".timeline");
+
+/* tạo line sáng */
+const progress = document.createElement("div");
+progress.className = "timeline-progress";
+timeline.appendChild(progress);
+
+/* line chạy theo scroll */
+function updateTimeline(){
+  const rect = timeline.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  const visible = Math.min(vh, Math.max(0, vh - rect.top));
+  const percent = visible / rect.height;
+
+  const clamped = Math.max(0, Math.min(1, percent));
+  progress.style.height = (clamped * 100) + "%";
+}
+
+window.addEventListener("scroll", updateTimeline);
+updateTimeline();
+
+/* reveal + dot glow */
+const items = document.querySelectorAll(".tl-item");
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+      e.target.classList.add("active");
+    }
+  });
+},{
+  threshold:.35
+});
+
+items.forEach(i=>io.observe(i));
+
+</script>
+
+</body>
+</html>

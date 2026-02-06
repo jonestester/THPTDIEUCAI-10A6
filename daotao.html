@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THPT Điểu Cải</title>
+    <link rel="stylesheet" href="/thpt.css">
+    <style>
+        /* ====== Giãn layout & căn giữa ====== */
+
+.Tongquat{
+  display:flex;
+  justify-content:center;
+}
+
+.Tongquat .neo-box{
+  max-width: 1200px;
+  width: 92%;
+  margin: 28px auto;
+  padding: 36px 42px;
+  border-radius: 22px;
+
+  background: linear-gradient(145deg,#f7f9ff,#eef3ff);
+  box-shadow:
+    8px 8px 18px rgba(0,0,0,0.08),
+    -8px -8px 18px rgba(255,255,255,0.9);
+
+  transition: 0.25s ease;
+}
+
+.Tongquat .neo-box:hover{
+  transform: translateY(-4px);
+}
+section.Tongquat:nth-of-type(odd) .neo-box{
+  background: linear-gradient(145deg,#f7f9ff,#eef3ff);
+}
+
+section.Tongquat:nth-of-type(even) .neo-box{
+  background: linear-gradient(145deg,#fff8ef,#ffeede);
+}
+.title-box{
+  text-align:center;
+  max-width:1100px;
+  margin: 40px auto 30px;
+
+  background: linear-gradient(90deg,#ff7a18,#ffb347);
+  color:white;
+
+  padding:18px 28px;
+  border-radius:18px;
+
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:1px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.title-box-mini{
+  max-width:1100px;
+  margin: 36px auto 10px;
+  text-align:center;
+  background-color: var(--p-600);
+  color:#4300fd;
+  font-weight:700;
+  font-size:20px;
+}
+
+.title-box-mini-reverse{
+  max-width:1100px;
+  margin: 36px auto 10px;
+  text-align:center;
+
+  color:#ff7a18;
+  font-weight:700;
+  font-size:20px;
+}
+.main-colored{
+  color:#ff7a18;
+  font-weight:700;
+  margin-top:14px;
+}
+.neo-box ul{
+  padding-left:20px;
+  margin-top:8px;
+}
+
+.neo-box li{
+  margin: 6px 0;
+  line-height:1.55;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       <!-- thanh trên-->
+    <div class="topbar">
+        <a href="https://dongnai.gov.vn/" target="_blank">CTTDT Đồng Nai</a>
+        <a href="https://sgddt.dongnai.gov.vn/" target="_blank">sở GD&ĐT Đồng Nai</a>
+        <a href="https://user.vnedu.vn/sso/" target="_blank">vnEdu</a>
+        <a href="https://www.facebook.com/profile.php?id=61553667718669&rdid=mclg8AmHaiI084IW&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1H9RrA7BnM%2F#" target="_blank">Thư viện</a>
+        <a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+            <img src="/Images/DOANTRUONG.png" title="Đoàn Trường THPT Điểu Cải" width="50px">
+        </a>
+        <a href="https://chinhphu.vn/" target="_blank">
+            <img src="/Images/vietnamflag.webp" title="CTTDT Chính Phủ VN" width="40px">
+        </a>
+        <!-- thanh dưới chạy theo màn hình-->
+    </div>
+</header>
+  <nav class="nav-menu">
+  <div class="nav-inner">
+
+    <!-- LOGO -->
+    <a href="/gioithieu.html">
+      <img
+        src="/Images/logochinh.jpg"
+        alt="Trường THPT Điểu Cải"
+        title="Trường THPT Điểu Cải, Đồng Nai">
+    </a>
+
+    <!-- GIỚI THIỆU -->
+    <div class="nav-item has-panel">
+      <a href="/gioithieu.html" data-key="gioithieu">
+        <span>GIỚI THIỆU</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/gioithieu.html">Tổng quan về Trường</a>
+        <a href="/gioithieu/dieucai.html">Anh hùng Điểu Cải</a>
+        <a href="/gioithieu/lichsu.html">Lịch sử hình thành và phát triển</a>
+        <a href="/gioithieu/vatchat.html">Cơ sở vật chất</a>
+      </div>
+    </div>
+
+    <!-- TUYỂN SINH -->
+    <a href="/tuyensinh.html" data-key="tuyensinh">
+      <span>TUYỂN SINH</span>
+    </a>
+
+    <!-- ĐÀO TẠO -->
+    <div class="nav-item has-panel">
+      <a href="/daotao.html" data-key="daotao">
+        <span>ĐÀO TẠO</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/daotao.html">Nội dung đào tạo</a>
+        <a href="/daotao/monhoc.html">Môn học</a>
+      </div>
+    </div>
+
+    <!-- GIÁO VIÊN -->
+    <a href="/giaovien.html" data-key="giaovien">
+      <span>GIÁO VIÊN</span>
+    </a>
+
+    <!-- HỌC SINH -->
+    <div class="nav-item has-panel">
+      <a href="/hocsinh.html" data-key="hocsinh">
+        <span>HỌC SINH</span>
+      </a>
+      <div class="nav-panel">
+        <a href="/hocsinh.html">Nhịp sống học sinh</a>
+        <a href="/hocsinh/lichhoc.html">Lịch học</a>
+      </div>
+    </div>
+
+    <!-- TIN TỨC -->
+    <a href="/tintuc.html" data-key="tintuc">
+      <span>TIN TỨC</span>
+    </a>
+
+    <!-- SEARCH BOX -->
+    <div class="searchbar">
+      <button class="search-toggle">
+        <svg viewBox="0 0 600 600">
+          <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 
+          579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 
+          157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 
+          128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+        </svg>
+      </button>
+
+      <div class="search-box">
+        <input type="search" id="search-input">
+        <button id="search-button">Tìm kiếm</button>
+      </div>
+    </div>
+
+    <!-- NAV LINE -->
+    <span class="nav-indicator"></span>
+
+  </div>
+</nav>
+
+
+
+    <button id="toTop">
+        <i class="arrow-up"></i>
+    </button>
+
+    <main>
+        <!-- ================= ĐỊNH HƯỚNG HỌC TẬP & ĐÀO TẠO ================= -->
+
+<div class="title-box reveal">
+ĐỊNH HƯỚNG HỌC TẬP VÀ ĐÀO TẠO
+</div>
+
+
+<!-- I -->
+<div class="title-box-mini reveal">
+I. MỤC TIÊU GIÁO DỤC CỦA TRƯỜNG ĐIỂU CẢI
+</div>
+
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p>
+Mục tiêu giáo dục của Trường THPT Điểu Cải hướng đến việc xây dựng và rèn luyện học sinh phát triển theo hướng toàn diện — vững kiến thức, tốt nhân cách, có định hướng sống tích cực và tinh thần trách nhiệm với cộng đồng.
+</p>
+
+<ul>
+<li>Xây dựng môi trường học tập kỷ luật, nhân văn và giàu động lực phát triển.</li>
+<li>Rèn luyện học sinh theo hướng tốt nhất về học tập, đạo đức và kỹ năng xã hội.</li>
+<li>Khuyến khích tinh thần chủ động, tự học và tự hoàn thiện bản thân.</li>
+</ul>
+
+<p class="main-colored">Giáo dục truyền thống và lý tưởng sống</p>
+
+<ul>
+<li>Tìm hiểu về cuộc đời và sự nghiệp Anh hùng LLVTND Điểu Cải — bài học về lòng yêu nước và lý tưởng sống.</li>
+<li>Bồi dưỡng lòng tự hào quê hương và ý thức trách nhiệm công dân.</li>
+<li>Xây dựng nhận thức về cống hiến và tinh thần vượt khó.</li>
+</ul>
+
+<p class="main-colored">Văn hóa học đường</p>
+
+<ul>
+<li>Quy tắc ứng xử giữa học sinh với thầy cô và bạn bè.</li>
+<li>Xây dựng môi trường tôn trọng – hợp tác – hỗ trợ lẫn nhau.</li>
+<li>Giữ gìn và phát huy truyền thống: <b>Lễ phép – Tự trọng – Năng động</b>.</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- II -->
+<div class="title-box-mini-reverse reveal">
+II. GIÁO DỤC KIẾN THỨC CỐT LÕI
+</div>
+
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p>
+Chương trình giảng dạy bám sát chương trình giáo dục phổ thông mới, đồng thời được điều chỉnh linh hoạt để phù hợp với thế mạnh đào tạo và điều kiện học tập thực tế của nhà trường.
+</p>
+
+<p class="main-colored">Phân hóa năng lực học sinh</p>
+
+<ul>
+<li>Hướng dẫn lựa chọn tổ hợp môn theo định hướng Tự nhiên hoặc Xã hội.</li>
+<li>Dựa trên năng lực, sở thích và mục tiêu nghề nghiệp tương lai.</li>
+<li>Tạo điều kiện để học sinh phát huy thế mạnh cá nhân.</li>
+</ul>
+
+<p class="main-colored">Phương pháp học tập hiện đại</p>
+
+<ul>
+<li>Rèn luyện năng lực tự học và tự nghiên cứu.</li>
+<li>Ứng dụng công nghệ thông tin trong tra cứu tài liệu.</li>
+<li>Tăng cường học theo dự án và bài tập nhóm.</li>
+<li>Khuyến khích tư duy phản biện và đặt câu hỏi ngược lại kiến thức.</li>
+</ul>
+
+<p class="p15 light-colored">
+Trọng tâm không chỉ là “học thuộc”, mà là hiểu – vận dụng – mở rộng.
+</p>
+
+</div>
+</section>
+
+
+<!-- III -->
+<div class="title-box-mini reveal">
+III. CHƯƠNG TRÌNH ĐÀO TẠO KỸ NĂNG
+</div>
+
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p>
+Tại Điểu Cải, học không chỉ để lấy điểm — mà còn để tích lũy kỹ năng sống và năng lực làm việc thực tế. 
+Kỹ năng được xem là một phần song hành với kiến thức học thuật.
+</p>
+
+<p class="main-colored">Kỹ năng mềm</p>
+
+<ul>
+<li>Rèn luyện kỹ năng thuyết trình trước đám đông giúp học sinh tự tin.</li>
+<li>Thực hành làm việc nhóm qua dự án học tập.</li>
+<li>Phát triển kỹ năng giao tiếp và phối hợp tập thể.</li>
+</ul>
+
+<p class="main-colored">Thể chất & Nghệ thuật</p>
+
+<ul>
+<li>Tận dụng sân bãi rộng để đào tạo và phát triển phong trào bóng chuyền.</li>
+<li>Khuyến khích tham gia hoạt động văn nghệ và biểu diễn.</li>
+<li>Phát triển thể lực đi kèm tinh thần thể thao.</li>
+</ul>
+
+<p class="main-colored">Hoạt động STEM & dự án sáng tạo</p>
+
+<ul>
+<li>Trang trí lớp học theo chủ đề học tập.</li>
+<li>Thiết kế website, mô hình công trình lịch sử.</li>
+<li>Ứng dụng kiến thức liên môn vào thực tế.</li>
+<li>Rèn luyện tư duy thiết kế, sáng tạo và giải quyết vấn đề.</li>
+<li>Tạo cơ hội làm việc nhóm thực thụ, không phải “chia tên cho đủ người”.</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- IV -->
+<div class="title-box-mini-reverse reveal">
+IV. TƯ VẤN HƯỚNG NGHIỆP SỚM
+</div>
+
+<section class="Tongquat reveal">
+
+<div class="neo-box">
+<p>
+Định hướng nghề nghiệp sớm đóng vai trò như “kim chỉ nam” giúp học sinh không bị lạc hướng sau khi tốt nghiệp và có lộ trình phát triển rõ ràng.
+</p>
+
+<ul>
+<li>Tư vấn tâm lý học đường và định hướng nghề nghiệp.</li>
+<li>Giúp học sinh hiểu rõ bản thân: điểm mạnh – điểm yếu – năng lực nổi bật.</li>
+<li>Kết nối giữa năng lực cá nhân và nhu cầu xã hội.</li>
+<li>Hỗ trợ chọn ngành, chọn tổ hợp xét tuyển phù hợp.</li>
+<li>Giảm tình trạng chọn nghề theo phong trào hoặc theo… bạn thân.</li>
+</ul>
+
+<p class="p15 light-colored">
+Mục tiêu cuối cùng: học sinh ra trường biết mình muốn gì và có khả năng theo đuổi điều đó.
+</p>
+
+</div>
+</section>
+
+
+    </main>
+
+         <footer>
+            <div>
+                <ul>
+                    <li><a href="https://www.facebook.com/doantruongThPTDieuCai" target="_blank">
+                        <img src="/Images/Facebook.png" alt="Facebook" title="Đoàn Trường THPT Điểu Cải" style="width:50px; height:50px;">
+                    </a></li>
+                </ul>
+            </div>
+            <div><span>
+                Địa chỉ: ấp Hoà Bình, xã La Ngà, tỉnh Đồng Nai
+            </span><br>
+            SĐT:<span style="color:#FFFFFFBF">097 240 37 41</span><br>
+            Hotline:<span style="color:#FFFFFFBF">0251 3639 043</span><br>
+        </div>
+        <img src="/Images/logochinh.jpg" alt="Trường THPT Điểu Cải" style="height:100px;" Title="Trường THPT Điểu Cải">
+    </footer>
+    <div class="bottom-background">
+        <div class="bottom">Website được thiết kế và thực hiện bởi lớp<span style="font-weight:700; font-size: 14px"> 10A6</span></div>
+
+       <div id="lightbox" class="lightbox">
+  <span class="lb-close">✕</span>
+  <button class="lb-zoom-in">＋</button>
+  <button class="lb-zoom-out">－</button>
+  <img class="lb-img">
+    </div>
+        <!-- ẩn vùng 20% bên dưới-->
+     <script src="/Javascript/hidecontext.js"></script>
+    <!-- thanh span di chuyển theo chuột-->
+    <script src="/Javascript/nav.js"></script>
+    <script src="/Javascript/scrollnavbar.js"></script>
+    <!-- nút cuộn lên đầu trang-->
+    <script src="/Javascript/scroll.js"></script>
+    <!-- box search-->
+     <script src="/Javascript/searchbox.js"></script>
+    <!-- slider ảnh đầu trang-->
+    <script src="/Javascript/imageslider.js"></script>
+    <script src="/Javascript/bannerzoom.js"></script>
+    <script src="/Javascript/panelhovercd.js"></script>
+    <script src="/Javascript/lightbox.js"></script>
+</body>
+</html>
