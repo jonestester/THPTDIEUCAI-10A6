@@ -1,5 +1,4 @@
-
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
   const searchbar = document.querySelector(".searchbar");
   if (!searchbar) return;
@@ -10,44 +9,52 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const btn = searchbar.querySelector("#search-button");
 
   /* ===== toggle mở ===== */
-  iconBtn.addEventListener("click", e=>{
+  iconBtn.addEventListener("click", e => {
     e.stopPropagation();
     box.classList.toggle("open");
-
     if (box.classList.contains("open")) {
-      setTimeout(()=> input.focus(), 60);
+      setTimeout(() => input.focus(), 60);
     }
   });
 
   /* ===== click ngoài → đóng ===== */
-  document.addEventListener("click", e=>{
+  document.addEventListener("click", e => {
     if (!searchbar.contains(e.target)) {
       box.classList.remove("open");
     }
   });
 
   /* ===== ESC → đóng ===== */
-  document.addEventListener("keydown", e=>{
+  document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       box.classList.remove("open");
     }
   });
 
+  /* ===== tính prefix theo cấp thư mục ===== */
+  function getPrefix() {
+    const path = location.pathname;
+    const depth = path.split("/").length - 2; 
+    if (depth <= 0) return "";
+    return "../".repeat(depth);
+  }
+
   /* ===== chạy search ===== */
-  function runSearch(){
+  function runSearch() {
     const q = input.value.trim();
     if (!q) return;
 
-    // đổi link nếu bạn có trang search riêng
-    window.location.href = "search.html?q=" + encodeURIComponent(q);
+    const prefix = getPrefix();
+    window.location.href = prefix + "search.html?q=" + encodeURIComponent(q);
   }
 
   /* click nút */
   btn.addEventListener("click", runSearch);
 
   /* Enter trong input */
-  input.addEventListener("keydown", e=>{
+  input.addEventListener("keydown", e => {
     if (e.key === "Enter") runSearch();
   });
 
 });
+
