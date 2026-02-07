@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = searchbar.querySelector("#search-input");
   const btn = searchbar.querySelector("#search-button");
 
-  /* ===== toggle mở ===== */
+  if (!iconBtn || !box || !input || !btn) return;
+
+  /* ===== mở / đóng box ===== */
   iconBtn.addEventListener("click", e => {
     e.stopPropagation();
     box.classList.toggle("open");
@@ -34,7 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== tính prefix theo cấp thư mục ===== */
   function getPrefix() {
     const path = location.pathname;
-    const depth = path.split("/").length - 2; 
+
+    // ví dụ:
+    // /index.html → depth 0
+    // /gioithieu/lichsu.html → depth 1
+    const parts = path.split("/").filter(Boolean);
+    const depth = parts.length - 1;
+
     if (depth <= 0) return "";
     return "../".repeat(depth);
   }
@@ -45,13 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!q) return;
 
     const prefix = getPrefix();
-    window.location.href = prefix + "search.html?q=" + encodeURIComponent(q);
+    window.location.href =
+      prefix + "search.html?q=" + encodeURIComponent(q);
   }
 
-  /* click nút */
   btn.addEventListener("click", runSearch);
 
-  /* Enter trong input */
   input.addEventListener("keydown", e => {
     if (e.key === "Enter") runSearch();
   });
