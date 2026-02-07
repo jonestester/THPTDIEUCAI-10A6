@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if (!q) return;
 
     // đổi link nếu bạn có trang search riêng
-    window.location.href = "/search.html?q=" + encodeURIComponent(q);
+    window.location.href = "search.html?q=" + encodeURIComponent(q);
   }
 
   /* click nút */
