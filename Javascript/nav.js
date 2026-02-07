@@ -6,8 +6,10 @@ window.addEventListener('load', () => {
 
   const links = [...inner.querySelectorAll('a[data-key]')];
 
-  function moveTo(el){
+  function moveTo(el) {
     const span = el.querySelector('span');
+    if (!span) return;
+
     const r = span.getBoundingClientRect();
     const p = inner.getBoundingClientRect();
 
@@ -15,24 +17,30 @@ window.addEventListener('load', () => {
     indicator.style.left  = (r.left - p.left) + 'px';
   }
 
+  /* ===== phân tích path ===== */
   const parts = location.pathname.split('/').filter(Boolean);
 
-  // nếu là page con lấy folder
-  // nếu là page cha  lấy filename
-  const key = parts.length > 1
-    ? parts[0]
-    : parts[0]?.replace('.html','');
+  let key;
+
+  if (parts.length >= 2) {
+    // có folder → dùng folder làm key (menu cha)
+    key = parts[parts.length - 2];
+  } else {
+    // không có folder → dùng tên file
+    key = (parts[0] || "gioithieu.html").replace('.html','');
+  }
 
   const active =
     links.find(a => a.dataset.key === key)
     || links[0];
 
-  requestAnimationFrame(()=> moveTo(active));
+  requestAnimationFrame(() => moveTo(active));
 
-  links.forEach(a=>{
-    a.addEventListener('mouseenter', ()=> moveTo(a));
+  links.forEach(a => {
+    a.addEventListener('mouseenter', () => moveTo(a));
   });
 
-  inner.addEventListener('mouseleave', ()=> moveTo(active));
+  inner.addEventListener('mouseleave', () => moveTo(active));
 
 });
+
